@@ -1,16 +1,16 @@
 ### Hi there 👋
 
-<!--
-**M4H1D/M4H1D** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+
+
+
+- 🔭 I’m currently working on ML
+- 🌱 I’m currently learning Python,C,Dart,Django,Flutter,ML,NLP,AI etc
+- 👯 I’m looking to collaborate on ML,AI etc
+- 🤔 I’m looking for help with ML,DL,NLP,AI,Django,Flutter etc.
+- 💬 Ask me about Python,C,Dart,Html,ML,Flask framework etc.
+- 📫 How to reach me: https://www.facebook.com/Mahid.Islam.786
+- 😄 Pronouns: Boro Vai.😎
+- ⚡ Fun fact: Joking,Problem solving etc.
+

@@ -22,7 +22,7 @@
 
 <p align="left">
 
-<a href="https://facebook.com/Mahid.Islam.786" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/neutral-icons/src/images/icons/Social/facebook.svg" alt="Mahid.Islam.786" height="30" width="40" /></a>
+<a href="https://facebook.com/Mahid.Islam.786" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/neutral-icons/src/images/icons/Social/FACEBOOK.svg" alt="Mahid.Islam.786" height="30" width="40" /></a>
 
 </p>
 

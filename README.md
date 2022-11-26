@@ -1,18 +1,18 @@
-<h1 align="center">Hi 👋, I'm Mahidul Islam</h1>
+<h1 align="center">Assalamu Alaikum 👋, I'm Mahidul Islam</h1>
 
 <h3 align="center">A simple beginner level Programmer and trying to be a ML,DL,NLP,AI developer..</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=m4h1d&label=Profile%20views&color=0e75b6&style=flat" alt="m4h1d" /> </p>
 
-- 🔭 I’m currently working on **Machine Learning**
+- 🔭 I’m currently working on **Data Science & Machine Learning**
 
-- 🌱 I’m currently learning **Python,C,Dart,Flask and ML**
+- 🌱 I’m currently learning **Python,C,Data Science and ML**
 
 - 🤝 I’m looking for help with **Machine Learning**
 
 - 👨‍💻 All of my projects are available at [https://github.com/M4H1D](https://github.com/M4H1D)
 
-- 💬 Ask me about **Python,C,Dart and Html**
+- 💬 Ask me about **Python,C and Html**
 
 - 📫 How to reach me [https://www.facebook.com/Mahid.Islam.786](https://Facebook.com/Mahid.Islam.786)
 

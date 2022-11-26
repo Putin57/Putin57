@@ -12,7 +12,7 @@
 
 - 👨‍💻 All of my projects are available at [https://github.com/M4H1D](https://github.com/M4H1D)
 
-- 💬 Ask me about **Python,C and Html**
+- 💬 Ask me about **Python,C, Html, Data Science and Machine Learning**
 
 - 📫 How to reach me [https://www.facebook.com/Mahid.Islam.786](https://Facebook.com/Mahid.Islam.786)
 

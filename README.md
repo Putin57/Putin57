@@ -6,7 +6,7 @@
 
 - 🔭 I’m currently working on **Data Science & Machine Learning**
 
-- 🌱 I’m currently learning **Python,C,Data Science and ML**
+- 🌱 I’m currently learning **Python,C,Data Science and Machine Learning**
 
 - 🤝 I’m looking for help with **Machine Learning**
 

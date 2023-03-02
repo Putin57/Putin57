@@ -6,13 +6,13 @@
 
 - 🔭 I’m currently working on **Data Science & Machine Learning**
 
-- 🌱 I’m currently learning **Python,C,Data Science and Machine Learning**
+- 🌱 I’m currently learning **Python, C, C++, Data Science and Machine Learning**
 
 - 🤝 I’m looking for help with **Machine Learning**
 
 - 👨‍💻 All of my projects are available at [https://github.com/M4H1D](https://github.com/M4H1D)
 
-- 💬 Ask me about **Python,C, Html, Data Science and Machine Learning**
+- 💬 Ask me about **Python,C, C++, Html, Data Science and Machine Learning**
 
 - 📫 How to reach me [https://www.facebook.com/Mahid.Islam.786](https://Facebook.com/Mahid.Islam.786)
 

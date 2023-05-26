@@ -2,7 +2,7 @@
 
 <h3 align="center">A simple beginner level Programmer and trying to be a ML,DL,NLP,AI developer..</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=putin57&label=Profile%20views&color=0e75b6&style=flat" alt="putin57" /> </p>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=Putin57&label=Profile%20views&color=0e75b6&style=flat" alt="Putin57" /> </p>
 
 - 🔭 I’m currently working on **Data Science & Machine Learning**
 
@@ -34,7 +34,7 @@
 
 [![Putin57's GitHub activity graph](https://activity-graph.herokuapp.com/graph?username=Putin57&&theme=xcode)](https://github.com/Putin57)
   
-![github stats](https://github-readme-stats.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=3200)
+![github stats](https://github-readme-stats.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=300)
 
 <img align="center" src="https://github-readme-stats.anuraghazra1.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark" />
 

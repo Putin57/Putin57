@@ -24,7 +24,7 @@
 <a href="https://kaggle.com/mahidul1slam" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="mahidul1slam" height="30" width="40" /></a>
 <a href="https://fb.com/mahid.islam.786" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="mahid.islam.786" height="30" width="40" /></a>
 <a href="https://www.hackerrank.com/Putin_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="Putin_" height="30" width="40" /></a>
-<a href="https://codeforces.com/profile/80r0_V41" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="80r0_V41" height="30" width="40" /></a>
+<a href="https://codeforces.com/profile/Mahid" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="Mahid" height="30" width="40" /></a>
 <a href="https://www.codechef.com/users/mahid_v41" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="mahid_v41" height="30" width="40" /></a>
 </p>
 

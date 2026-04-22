@@ -48,3 +48,5 @@
 ![github stats](https://github-readme-stats.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=3200)
 
 ![Top Languages](https://github-readme-stats.anuraghazra1.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark)
+
+[![GitHub Streak](https://streak-stats.demolab.com?user=Putin57&theme=chartreuse-dark)](https://git.io/streak-stats)

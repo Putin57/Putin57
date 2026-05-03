@@ -45,10 +45,20 @@
 ![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 <p align="center">
-  <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" height="180em"/>
-  <img src="https://streak-stats.demolab.com?user=Putin57&theme=chartreuse-dark&hide_border=true" height="180em"/>
-</p>
-<p align="center">
-  <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark&hide_border=true" height="180em"/>
+  <table>
+    <tr>
+      <td>
+        <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" />
+      </td>
+      <td>
+        <img src="https://streak-stats.demolab.com?user=Putin57&theme=chartreuse-dark&hide_border=true" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark&hide_border=true" />
+      </td>
+    </tr>
+  </table>
 </p>
 

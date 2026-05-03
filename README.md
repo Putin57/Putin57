@@ -46,11 +46,11 @@
 
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" />
+  <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" />
   <br/><br/>
   <img src="https://streak-stats.demolab.com?user=Putin57&theme=chartreuse-dark&hide_border=true" />
   <br/><br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark&hide_border=true" />
+  <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark&hide_border=true" />
 </p>
 
 

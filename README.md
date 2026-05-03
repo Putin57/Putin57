@@ -44,7 +44,6 @@
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-
 <p align="center">
   <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" />
   <br/><br/>
@@ -52,5 +51,4 @@
   <br/><br/>
   <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark&hide_border=true" />
 </p>
-
 

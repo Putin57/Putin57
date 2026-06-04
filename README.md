@@ -51,9 +51,6 @@
   <table>
     <tr>
       <td>
-        <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" />
-      </td>
-      <td>
         <img src="https://streak-stats.demolab.com?user=Putin57&theme=chartreuse-dark&hide_border=true" />
       </td>
     </tr>

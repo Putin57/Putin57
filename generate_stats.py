@@ -118,6 +118,10 @@ with open("assets/stats.json", "w") as f:
 
 def generate_stats_svg(stats):
     commits_display = f"{stats['commits']//1000}k" if stats['commits'] >= 1000 else str(stats['commits'])
+    stars = stats['stars']
+    prs = stats['prs']
+    issues = stats['issues']
+    commits_val = stats['commits']
     return f'''<svg width="495" height="195" xmlns="http://www.w3.org/2000/svg">
   <style>
     .title {{ font: bold 16px "Segoe UI", sans-serif; fill: #7FFF00; }}
@@ -126,31 +130,34 @@ def generate_stats_svg(stats):
   </style>
   <rect width="495" height="195" rx="10" fill="#0d1117"/>
   <rect x="1" y="1" width="493" height="193" rx="9" fill="none" stroke="#7FFF00" stroke-width="0.5" opacity="0.3"/>
-  
-  <text x="25" y="35" class="title">Putin57\'s GitHub Stats</text>
-  
+
+  <text x="25" y="35" class="title">Putin57s GitHub Stats</text>
+
   <text x="25" y="72" class="stat-label">⭐ Total Stars Earned:</text>
-  <text x="230" y="72" class="stat-value">{stats['stars']}</text>
-  
+  <text x="230" y="72" class="stat-value">{stars}</text>
+
   <text x="25" y="97" class="stat-label">🕐 Total Commits:</text>
   <text x="230" y="97" class="stat-value">{commits_display}</text>
-  
+
   <text x="25" y="122" class="stat-label">🔀 Total PRs:</text>
-  <text x="230" y="122" class="stat-value">{stats['prs']}</text>
-  
+  <text x="230" y="122" class="stat-value">{prs}</text>
+
   <text x="25" y="147" class="stat-label">⚠ Total Issues:</text>
-  <text x="230" y="147" class="stat-value">{stats['issues']}</text>
+  <text x="230" y="147" class="stat-value">{issues}</text>
 
   <circle cx="400" cy="100" r="55" fill="none" stroke="#333" stroke-width="8"/>
   <circle cx="400" cy="100" r="55" fill="none" stroke="#7FFF00" stroke-width="8"
     stroke-dasharray="345" stroke-dashoffset="86" stroke-linecap="round"
     transform="rotate(-90 400 100)"/>
   <text x="400" y="93" text-anchor="middle" font-size="13" fill="#aaa">Total</text>
-  <text x="400" y="115" text-anchor="middle" font-size="18" font-weight="bold" fill="white">{stats['commits']}</text>
+  <text x="400" y="115" text-anchor="middle" font-size="18" font-weight="bold" fill="white">{commits_val}</text>
 </svg>'''
 
 
 def generate_streak_svg(stats):
+    current = stats['current_streak']
+    longest = stats['longest_streak']
+    updated = stats['updated']
     return f'''<svg width="495" height="195" xmlns="http://www.w3.org/2000/svg">
   <style>
     .label {{ font: 13px "Segoe UI", sans-serif; fill: #a0a0a0; }}
@@ -160,7 +167,7 @@ def generate_streak_svg(stats):
   <rect width="495" height="195" rx="10" fill="#0d1117"/>
   <rect x="1" y="1" width="493" height="193" rx="9" fill="none" stroke="#7FFF00" stroke-width="0.5" opacity="0.3"/>
 
-  <text x="90" y="95" text-anchor="middle" class="value">{stats['current_streak']}</text>
+  <text x="90" y="95" text-anchor="middle" class="value">{current}</text>
   <text x="90" y="118" text-anchor="middle" class="small">Current Streak</text>
   <text x="90" y="140" text-anchor="middle" font-size="16" fill="#aaa">🔥</text>
 
@@ -170,10 +177,10 @@ def generate_streak_svg(stats):
     stroke-linecap="round" transform="rotate(-90 247 97)"/>
   <text x="247" y="105" text-anchor="middle" font-size="26" fill="white">🔥</text>
 
-  <text x="400" y="95" text-anchor="middle" class="value">{stats['longest_streak']}</text>
+  <text x="400" y="95" text-anchor="middle" class="value">{longest}</text>
   <text x="400" y="118" text-anchor="middle" class="small">Longest Streak</text>
 
-  <text x="247" y="172" text-anchor="middle" font-size="11" fill="#555">Updated: {stats[\'updated\']}</text>
+  <text x="247" y="172" text-anchor="middle" font-size="11" fill="#555">Updated: {updated}</text>
 </svg>'''
 
 
@@ -205,8 +212,9 @@ def generate_langs_svg(stats):
         lx = 45 + col * 230
         ly = 90 + row * 28
         color = colors.get(lang, '#888888')
+        pct_str = f"{pct:.2f}%"
         legend += f'<circle cx="{lx-15}" cy="{ly-5}" r="6" fill="{color}"/>'
-        legend += f'<text x="{lx}" y="{ly}" font-size="13" fill="#ccc" font-family="Segoe UI">{lang} {pct:.2f}%</text>'
+        legend += f'<text x="{lx}" y="{ly}" font-size="13" fill="#ccc" font-family="Segoe UI">{lang} {pct_str}</text>'
 
     height = 90 + (len(items)//2 + 1) * 28 + 20
     return f'''<svg width="495" height="{height}" xmlns="http://www.w3.org/2000/svg">
@@ -227,5 +235,5 @@ with open("assets/streak.svg", "w") as f:
 with open("assets/langs.svg", "w") as f:
     f.write(generate_langs_svg(stats))
 
-print("✅ Stats generated successfully!")
+print("Stats generated successfully!")
 print(json.dumps(stats, indent=2))

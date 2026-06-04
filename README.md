@@ -44,19 +44,21 @@
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
+
+
 <p align="center">
   <table>
     <tr>
       <td>
-        <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" />
+        <img src="./assets/stats.svg" />
       </td>
       <td>
-        <img src="https://streak-stats.demolab.com?user=Putin57&theme=chartreuse-dark&hide_border=true&card_width=500" />
+        <img src="./assets/streak.svg" />
       </td>
     </tr>
     <tr>
       <td colspan="2" align="center">
-        <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark&hide_border=true" />
+        <img src="./assets/langs.svg" />
       </td>
     </tr>
   </table>

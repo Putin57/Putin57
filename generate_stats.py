@@ -1,0 +1,237 @@
+import requests
+import os
+import json
+from datetime import datetime
+
+USERNAME = os.environ.get("USERNAME", "Putin57")
+TOKEN = os.environ.get("GITHUB_TOKEN", "")
+
+headers = {
+    "Authorization": f"bearer {TOKEN}",
+    "Content-Type": "application/json"
+}
+
+# GraphQL query
+query = """
+query($username: String!) {
+  user(login: $username) {
+    name
+    contributionsCollection {
+      totalCommitContributions
+      totalPullRequestContributions
+      totalIssueContributions
+      contributionCalendar {
+        totalContributions
+        weeks {
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
+      }
+    }
+    repositories(first: 100, ownerAffiliations: OWNER) {
+      nodes {
+        stargazerCount
+        languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+          edges {
+            size
+            node {
+              name
+              color
+            }
+          }
+        }
+      }
+    }
+    pullRequests(states: [OPEN, MERGED, CLOSED]) {
+      totalCount
+    }
+    issues(states: [OPEN, CLOSED]) {
+      totalCount
+    }
+  }
+}
+"""
+
+response = requests.post(
+    "https://api.github.com/graphql",
+    json={"query": query, "variables": {"username": USERNAME}},
+    headers=headers
+)
+
+data = response.json()["data"]["user"]
+
+# Calculate stats
+total_stars = sum(r["stargazerCount"] for r in data["repositories"]["nodes"])
+total_commits = data["contributionsCollection"]["totalCommitContributions"]
+total_prs = data["pullRequests"]["totalCount"]
+total_issues = data["issues"]["totalCount"]
+
+# Calculate streak
+all_days = []
+for week in data["contributionsCollection"]["contributionCalendar"]["weeks"]:
+    for day in week["contributionDays"]:
+        all_days.append(day)
+
+all_days.sort(key=lambda x: x["date"], reverse=True)
+
+current_streak = 0
+longest_streak = 0
+temp_streak = 0
+
+for day in all_days:
+    if day["contributionCount"] > 0:
+        temp_streak += 1
+        longest_streak = max(longest_streak, temp_streak)
+    else:
+        if current_streak == 0 and temp_streak > 0:
+            current_streak = temp_streak
+        temp_streak = 0
+
+if current_streak == 0:
+    current_streak = temp_streak
+
+# Language stats
+lang_sizes = {}
+for repo in data["repositories"]["nodes"]:
+    for edge in repo["languages"]["edges"]:
+        name = edge["node"]["name"]
+        size = edge["size"]
+        lang_sizes[name] = lang_sizes.get(name, 0) + size
+
+total_size = sum(lang_sizes.values())
+lang_percentages = {k: (v/total_size)*100 for k, v in sorted(lang_sizes.items(), key=lambda x: -x[1])[:6]}
+
+# Save as JSON for SVG generation
+os.makedirs("assets", exist_ok=True)
+
+stats = {
+    "stars": total_stars,
+    "commits": total_commits,
+    "prs": total_prs,
+    "issues": total_issues,
+    "current_streak": current_streak,
+    "longest_streak": longest_streak,
+    "languages": lang_percentages,
+    "updated": datetime.now().strftime("%Y-%m-%d %H:%M UTC")
+}
+
+with open("assets/stats.json", "w") as f:
+    json.dump(stats, f)
+
+# Generate Stats SVG
+def generate_stats_svg(stats):
+    commits_display = f"{stats['commits']//1000}k" if stats['commits'] >= 1000 else str(stats['commits'])
+    return f'''<svg width="495" height="195" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title {{ font: bold 14px "Segoe UI", sans-serif; fill: #7FFF00; }}
+    .stat-label {{ font: 12px "Segoe UI", sans-serif; fill: #a0a0a0; }}
+    .stat-value {{ font: bold 13px "Segoe UI", sans-serif; fill: #ffffff; }}
+    .icon {{ fill: #7FFF00; }}
+    rect.bg {{ fill: #0d1117; rx: 10; }}
+  </style>
+  <rect width="495" height="195" rx="10" fill="#0d1117"/>
+  <rect x="1" y="1" width="493" height="193" rx="9" fill="none" stroke="#7FFF00" stroke-width="0.5" opacity="0.3"/>
+  
+  <text x="25" y="35" class="title">Putin57's GitHub Stats</text>
+  
+  <text x="25" y="70" class="stat-label">⭐ Total Stars Earned:</text>
+  <text x="220" y="70" class="stat-value">{stats['stars']}</text>
+  
+  <text x="25" y="95" class="stat-label">🕐 Total Commits:</text>
+  <text x="220" y="95" class="stat-value">{commits_display}</text>
+  
+  <text x="25" y="120" class="stat-label">🔀 Total PRs:</text>
+  <text x="220" y="120" class="stat-value">{stats['prs']}</text>
+  
+  <text x="25" y="145" class="stat-label">⚠ Total Issues:</text>
+  <text x="220" y="145" class="stat-value">{stats['issues']}</text>
+
+  <circle cx="390" cy="100" r="55" fill="none" stroke="#333" stroke-width="8"/>
+  <circle cx="390" cy="100" r="55" fill="none" stroke="#7FFF00" stroke-width="8"
+    stroke-dasharray="345" stroke-dashoffset="86" stroke-linecap="round"
+    transform="rotate(-90 390 100)"/>
+  <text x="390" y="95" text-anchor="middle" font-size="13" fill="#aaa">Total</text>
+  <text x="390" y="113" text-anchor="middle" font-size="15" font-weight="bold" fill="white">{stats['commits']}</text>
+</svg>'''
+
+# Generate Streak SVG
+def generate_streak_svg(stats):
+    return f'''<svg width="495" height="195" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title {{ font: bold 13px "Segoe UI", sans-serif; fill: #7FFF00; }}
+    .label {{ font: 11px "Segoe UI", sans-serif; fill: #a0a0a0; }}
+    .value {{ font: bold 22px "Segoe UI", sans-serif; fill: #ffffff; }}
+    .small {{ font: 10px "Segoe UI", sans-serif; fill: #7FFF00; }}
+  </style>
+  <rect width="495" height="195" rx="10" fill="#0d1117"/>
+  <rect x="1" y="1" width="493" height="193" rx="9" fill="none" stroke="#7FFF00" stroke-width="0.5" opacity="0.3"/>
+
+  <text x="90" y="100" text-anchor="middle" class="value">{stats['current_streak']}</text>
+  <text x="90" y="120" text-anchor="middle" class="small">Current Streak</text>
+  <text x="90" y="140" text-anchor="middle" class="label">🔥</text>
+
+  <circle cx="247" cy="97" r="45" fill="none" stroke="#333" stroke-width="6"/>
+  <circle cx="247" cy="97" r="45" fill="none" stroke="#7FFF00" stroke-width="6"
+    stroke-dasharray="283" stroke-dashoffset="70"
+    stroke-linecap="round" transform="rotate(-90 247 97)"/>
+  <text x="247" y="102" text-anchor="middle" font-size="22" font-weight="bold" fill="white">🔥</text>
+
+  <text x="400" y="100" text-anchor="middle" class="value">{stats['longest_streak']}</text>
+  <text x="400" y="120" text-anchor="middle" class="small">Longest Streak</text>
+
+  <text x="247" y="170" text-anchor="middle" class="label">Updated: {stats['updated']}</text>
+</svg>'''
+
+# Generate Languages SVG
+def generate_langs_svg(stats):
+    langs = stats['languages']
+    colors = {
+        'Python': '#3572A5', 'JavaScript': '#f1e05a', 'TypeScript': '#2b7489',
+        'Java': '#b07219', 'C++': '#f34b7d', 'C': '#555555',
+        'Jupyter Notebook': '#DA5B0B', 'Cython': '#fedf5b', 'HTML': '#e34c26',
+        'CSS': '#563d7c', 'Go': '#00ADD8', 'Rust': '#dea584'
+    }
+    
+    bar_x = 25
+    bar_width = 445
+    bar_parts = ""
+    x = bar_x
+    for lang, pct in langs.items():
+        w = int((pct / 100) * bar_width)
+        color = colors.get(lang, '#888888')
+        bar_parts += f'<rect x="{x}" y="55" width="{w}" height="12" fill="{color}" rx="3"/>'
+        x += w
+
+    legend = ""
+    items = list(langs.items())
+    for i, (lang, pct) in enumerate(items):
+        col = i % 2
+        row = i // 2
+        lx = 40 + col * 230
+        ly = 90 + row * 25
+        color = colors.get(lang, '#888888')
+        legend += f'<circle cx="{lx-15}" cy="{ly-4}" r="5" fill="{color}"/>'
+        legend += f'<text x="{lx}" y="{ly}" font-size="12" fill="#ccc" font-family="Segoe UI">{lang} {pct:.2f}%</text>'
+
+    height = 90 + (len(items)//2 + 1) * 25 + 20
+    return f'''<svg width="495" height="{height}" xmlns="http://www.w3.org/2000/svg">
+  <rect width="495" height="{height}" rx="10" fill="#0d1117"/>
+  <rect x="1" y="1" width="493" height="{height-2}" rx="9" fill="none" stroke="#7FFF00" stroke-width="0.5" opacity="0.3"/>
+  <text x="25" y="35" font-size="14" font-weight="bold" fill="#7FFF00" font-family="Segoe UI">Most Used Languages</text>
+  {bar_parts}
+  {legend}
+</svg>'''
+
+with open("assets/stats.svg", "w") as f:
+    f.write(generate_stats_svg(stats))
+
+with open("assets/streak.svg", "w") as f:
+    f.write(generate_streak_svg(stats))
+
+with open("assets/langs.svg", "w") as f:
+    f.write(generate_langs_svg(stats))
+
+print("✅ Stats generated successfully!")
+print(json.dumps(stats, indent=2))

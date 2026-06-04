@@ -48,10 +48,10 @@
   <table>
     <tr>
       <td>
-        <img src="https://streak-stats.demolab.com?user=Putin57&theme=chartreuse-dark&hide_border=true&card_width=500" />
+        <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" />
       </td>
       <td>
-        <img src="https://github-readme-streak-stats.herokuapp.com?user=Putin57&theme=chartreuse-dark&hide_border=true" />
+        <img src="https://nirzak-streak-stats.vercel.app?user=Putin57&theme=chartreuse-dark&hide_border=true" />
       </td>
     </tr>
     <tr>
@@ -61,4 +61,3 @@
     </tr>
   </table>
 </p>
-

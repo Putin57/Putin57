@@ -47,18 +47,19 @@
 
 
 <p align="center">
+  <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark&hide_border=true" height="180em"/>
   <table>
     <tr>
       <td>
-        <img src="./assets/stats.svg" />
+        <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api?username=Putin57&show_icons=true&include_all_commits=true&theme=chartreuse-dark&cache_seconds=86400&hide_border=true" />
       </td>
       <td>
-        <img src="./assets/streak.svg" />
+        <img src="https://streak-stats.demolab.com?user=Putin57&theme=chartreuse-dark&hide_border=true" />
       </td>
     </tr>
     <tr>
       <td colspan="2" align="center">
-        <img src="./assets/langs.svg" />
+        <img src="https://github-readme-stats-orpin-psi-93.vercel.app/api/top-langs/?username=Putin57&layout=compact&theme=chartreuse-dark&hide_border=true" />
       </td>
     </tr>
   </table>
